@@ -75,6 +75,22 @@ class client {
 
 
     }
+    
+    getParticipantsList(surveyId, start,limit, unused) {
+
+        let params = [surveyId]
+
+        if (start) {
+            params.push(start)
+        }
+        if (limit){
+            params.push(limit)
+        }
+        if (unused){
+            params.push(unused)
+        }
+        return this.callApi('list_participants', params)
+    }
 
     getSurveyList() {
         return this.callApi('list_surveys', [null])
